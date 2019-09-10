@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Formulario Pie Diabético</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-light bg-danger">
+      <img src="assets/img/join_logo_w.png" height="30" class="d-inline-block align-top" alt="">
+      <img src="assets/img/join_icon_bg_w.png" height="40" class="d-inline-block align-top" alt="">
+  </nav>
+
+<!-- Formulario -->
+<div class="container">
+<h4>Formulario Pie Diabético</h4>
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputFecha0">Fecha de Derivación</label>
+      <input type="text" class="form-control" id="inpuFecha0">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputName">Nombre</label>
+      <input type="text" class="form-control" id="inputName">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputRUT">RUT</label>
+      <input type="text" class="form-control" id="inputRUT">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputAge">Edad</label>
+      <input type="text" class="form-control" id="inputAge">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputFuncionalidad">Funcionalidad</label>
+      <select id="inputCognitivo" class="form-control">
+        <option selected>Autovalente</option>
+        <option>Apoyo parcial</option>
+        <option>Apoyo total</option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputCognitivo">Estado Cognitivo</label>
+      <select id="inputCognitivo" class="form-control">
+        <option selected>Orientada y lúcida</option>
+        <option>Confusa</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputMorbidos">Antecedentes mórbidos</label>
+    <input type="text" class="form-control" id="inputMorbidos" placeholder="Ej.: HTA, DM2, Retinopatia diabética">
+  </div>
+  <div class="form-group">
+    <label for="inputQuirúrgicos">Antecedentes quirúrgicos</label>
+    <input type="text" class="form-control" id="inputQuirúrgicos" placeholder="Ej.: Colecistectomía">
+  </div>
+  <div class="form-group">
+    <label for="inputTMetabolico">Tratamiento metabólico</label>
+    <input type="text" class="form-control" id="inputTMetabolico" placeholder="Ej.: Insulina NPH 10-12U - Metformina 850mg">
+  </div>
+  <div class="form-group">
+    <label for="inputTAntibiotico">Tratamiento antibiótico</label>
+    <input type="text" class="form-control" id="inputTAntibiotico" placeholder="Ej.: Cloxacilina, hace 6 dias">
+  </div>
+  <div class="form-group">
+    <label for="inputAlergias">Alergias</label>
+    <input type="text" class="form-control" id="inputAlergias" placeholder="Ej.: Metamizol">
+  </div>
+  <h5>Exámenes de apoyo</h5>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label for="inputHG">Hemoglobina Glicosilada</label>
+      <input type="text" class="form-control" id="inputHG" placeholder="Valor">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputFecha1">Fecha</label>
+      <input type="text" class="form-control" id="inputFecha1">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label for="inputGlic">Glicemia</label>
+      <input type="text" class="form-control" id="inputGlic" placeholder="Valor">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputFecha2">Fecha</label>
+      <input type="text" class="form-control" id="inputFecha2">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label for="inputRx">Radiografía</label>
+      <input type="text" class="form-control" id="inputRx" placeholder="Descripción">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputFecha3">Fecha</label>
+      <input type="text" class="form-control" id="inputFecha3">
+    </div>
+  </div>
+  <h5>Curaciones</h5>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputCuracionI">Inicio</label>
+      <input type="text" class="form-control" id="inputCuracionI">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputFrec">Frecuencia</label>
+      <select id="inputFrec" class="form-control">
+        <option selected>Diaria</option>
+        <option>Dia por medio</option>
+        <option>Semanal</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputAposito">Apósitos</label>
+      <select id="inputAposito" class="form-control">
+        <option selected>Antimicrobiano</option>
+        <option>Otro</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputDolor">Dolor</label>
+      <input type="text" class="form-control" id="inputDolor" placeholder="Ej.: 5/10">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputPulsoPedio">Pulso Pedio</label>
+      <select id="inputPulsoPedio" class="form-control">
+        <option selected>Presente (+++)</option>
+        <option>Presente (++)</option>
+        <option>Débil (+)</option>
+        <option>Ausente (-)</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputPulsoTibial">Pulso Tibial Posterior</label>
+      <select id="inputPulsoTibial" class="form-control">
+        <option selected>Presente (+++)</option>
+        <option>Presente (++)</option>
+        <option>Débil (+)</option>
+        <option>Ausente (-)</option>
+      </select>
+    </div>
+  </div>
+
+<a class="btn btn-danger" href="joinallm://chat?message=hello%0D%0Aallm inc." role="button">Link</a>
+
+</form>
+</div>
+<!-- Footer -->
+<nav class="navbar navbar-light bg-secondary">
+    <img src="assets/img/corporate_logo_White.png" height="30" class="d-inline-block align-top" alt="">
+</nav>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("button.send-join").click(function(){
+        var inputName = $("#inputName").val();
+        var inputRUT = $('#inputRUT').val();
+        var inputPulsoTibial = $('#inputPulsoTibial').val();
+        var message = "joinallm://chat?message="+inputName+"%0A"+inputRUT+"%0A"+inputPulsoTibial;
+        window.location.replace(message)
+//        alert(message)
+    });
+});
+</script>
+</body>
+</html>
