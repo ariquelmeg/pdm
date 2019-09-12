@@ -12,15 +12,75 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	<link rel="stylesheet" href="assets/css/style.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
   <script>
-  $(document).ready(function() {
-      $('#create-link-button').on('click', function(e) {
-          e.preventDefault();
-          var dataString = $('#create-link-form').serialize();
-          alert('Datos serializados: '+dataString);
-      });
-  });
-  </script>
+    $(document).ready(function() {
+        $('#create-link-button').on('click', function(e) {
+            e.preventDefault();
+            //var dataString = $('#create-link-form').serialize();
+            var fecha_derivacion = $("#inputFecha0").val();
+            var nombre = $("#inputName").val();
+            var rut = $("#inputRUT").val();
+            var edad = $("#inputAge").val();
+            var funcionalidad = $("#inputFuncionalidad").val();
+            var cognitivo = $("#inputCognitivo").val();
+            var morbido = $("#inputMorbidos").val();
+            var quirurgico = $("#inputQuirurgicos").val();
+            var metabolico = $("#inputTMetabolico").val();
+            var antibiotico = $("#inputTAntibiotico").val();
+            var alergias = $("#inputAlergias").val();
+            var hglicosilada = $("#inputHG").val();
+            var hg_fecha = $("#inputFecha1").val();
+            var glicemia = $("#inputGlic").val();
+            var gl_fecha = $("#inputFecha2").val();
+            var radiografia = $("#inputRx").val();
+            var rx_fecha = $("#inputFecha3").val();
+            var curacion_i = $("#inputCuracionI").val();
+            var curacion_f = $("#inputFrec").val();
+            var aposito = $("#inputAposito").val();
+            var dolor = $ ("#inputDolor").val();
+            var pulso_pedio = $ ("#inputPulsoPedio").val();
+            var pulso_tibial = $ ("#inputPulsoTibial").val();
+
+            //alert('Datos serializados: '+dataString);
+            var mensaje = "Fecha de Derivación: "+ fecha_derivacion + "\n"
+            + "Nombre: " + nombre + "\n"
+            + "RUT: " + rut + "\n"
+            + "Edad: " + edad + "\n"
+            + "Funcionalidad: " + funcionalidad + "\n"
+            + "Estado Cognitivo: " + cognitivo + "\n"
+            + "Antecedentes Mórbidos: " + morbido + "\n"
+            + "Antecedentes Quirúrgicos: " + quirurgico + "\n"
+            + "Tratamiento Metabólico: " + metabolico + "\n"
+            + "Tratamiento Antibiótico: " + antibiotico + "\n"
+            + "Alergias: " + alergias + "\n"
+            + "Hemoglobina Glicosilada: " + hglicosilada + "% (" + hg_fecha + ")" + "\n"
+            + "Glicemia en ayunas: " + glicemia + "mg/dL (" + gl_fecha + ")" + "\n"
+            + "Radiografía: " + radiografia + " (" + rx_fecha + ")" + "\n"
+            + "Curaciones con inicio el " + curacion_i + " y frecuencia " + curacion_f + " usando apósito " + aposito + "\n"
+            + "Dolor: EVA " + dolor + "\n"
+            + "Pulsos: Tibial: " + pulso_tibial + ", Pedio: " + pulso_pedio + "\n";
+
+//            alert(mensaje);
+            var enlace = "joinallm://chat?message="+encodeURIComponent(mensaje);
+            window.open(enlace);
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+        var date_input=$('input[name="date"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+            format: 'dd/mm/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        })
+    })
+</script>
 </head>
 <body>
 
@@ -33,7 +93,7 @@
 <!-- Formulario -->
 <div class="container">
 <h4>Formulario Pie Diabético</h4>
-<form id="create-link-form" action="#">
+<form id="Formulario">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputFecha0">Fecha de Derivación</label>
@@ -57,7 +117,7 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputFuncionalidad">Funcionalidad</label>
-      <select id="inputCognitivo" class="form-control" name="Funcionalidad">
+      <select id="inputFuncionalidad" class="form-control" name="Funcionalidad">
         <option selected>Autovalente</option>
         <option>Apoyo parcial</option>
         <option>Apoyo total</option>
@@ -66,8 +126,8 @@
     <div class="form-group col-md-6">
       <label for="inputCognitivo">Estado Cognitivo</label>
       <select id="inputCognitivo" class="form-control" name="Estado Cognitivo">
-        <option selected>Orientada y lúcida</option>
-        <option>Confusa</option>
+        <option selected>Orientado y lúcido</option>
+        <option>Confuso</option>
       </select>
     </div>
   </div>
@@ -77,7 +137,7 @@
   </div>
   <div class="form-group">
     <label for="inputQuirúrgicos">Antecedentes quirúrgicos</label>
-    <input type="text" class="form-control" id="inputQuirúrgicos" name="Antecedentes Quirúrgicos" placeholder="Ej.: Colecistectomía">
+    <input type="text" class="form-control" id="inputQuirurgicos" name="Antecedentes Quirúrgicos" placeholder="Ej.: Colecistectomía">
   </div>
   <div class="form-group">
     <label for="inputTMetabolico">Tratamiento metabólico</label>
@@ -99,27 +159,27 @@
     </div>
     <div class="form-group col-md-4">
       <label for="inputFecha1">Fecha</label>
-      <input type="text" class="form-control" name="Fecha" id="inputFecha1">
+      <input type="text" class="form-control" id="inputFecha1" name="Fecha">
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-8">
       <label for="inputGlic">Glicemia</label>
-      <input type="text" class="form-control" id="inputGlic" placeholder="Valor">
+      <input type="text" class="form-control" id="inputGlic" name="Glicemia" placeholder="Valor">
     </div>
     <div class="form-group col-md-4">
       <label for="inputFecha2">Fecha</label>
-      <input type="text" class="form-control" id="inputFecha2">
+      <input type="text" class="form-control" id="inputFecha2" name="Fecha">
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-8">
       <label for="inputRx">Radiografía</label>
-      <input type="text" class="form-control" id="inputRx" placeholder="Descripción">
+      <input type="text" class="form-control" id="inputRx" name="Radiografía" placeholder="Descripción">
     </div>
     <div class="form-group col-md-4">
       <label for="inputFecha3">Fecha</label>
-      <input type="text" class="form-control" id="inputFecha3">
+      <input type="text" class="form-control" id="inputFecha3" name="Fecha">
     </div>
   </div>
   <h5>Curaciones</h5>
@@ -168,8 +228,8 @@
       </select>
     </div>
   </div>
-  <button type="submit" class="btn btn-danger" id="create-link-button">Enviar</button>
-  </form>
+<button type="submit" class="btn btn-danger" id="create-link-button">Enviar</button>
+</form>
 </div>
 <!-- Footer -->
 <nav class="navbar navbar-light bg-secondary">
