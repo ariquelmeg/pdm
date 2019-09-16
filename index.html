@@ -14,7 +14,26 @@
 	<link rel="stylesheet" href="assets/css/style.css">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
+  <script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+  </script>
   <script>
     $(document).ready(function() {
         $('#create-link-button').on('click', function(e) {
@@ -25,6 +44,7 @@
             var rut = $("#inputRUT").val();
             var edad = $("#inputAge").val();
             var funcionalidad = $("#inputFuncionalidad").val();
+            var ortesis = $("#inputOrtesis").val();
             var cognitivo = $("#inputCognitivo").val();
             var morbido = $("#inputMorbidos").val();
             var quirurgico = $("#inputQuirurgicos").val();
@@ -35,6 +55,8 @@
             var hg_fecha = $("#inputFecha1").val();
             var glicemia = $("#inputGlic").val();
             var gl_fecha = $("#inputFecha2").val();
+            var cultivo = $("#inputCultivo").val();
+            var cl_fecha = $("#inputFecha4").val();
             var radiografia = $("#inputRx").val();
             var rx_fecha = $("#inputFecha3").val();
             var curacion_i = $("#inputCuracionI").val();
@@ -43,6 +65,7 @@
             var dolor = $ ("#inputDolor").val();
             var pulso_pedio = $ ("#inputPulsoPedio").val();
             var pulso_tibial = $ ("#inputPulsoTibial").val();
+            var clas_elian = $ ("#inputElian").val();
 
             //alert('Datos serializados: '+dataString);
             var mensaje = "Fecha de Derivación: "+ fecha_derivacion + "\n"
@@ -50,6 +73,7 @@
             + "RUT: " + rut + "\n"
             + "Edad: " + edad + "\n"
             + "Funcionalidad: " + funcionalidad + "\n"
+            + "Uso de órtesis:" + ortesis + "\n"
             + "Estado Cognitivo: " + cognitivo + "\n"
             + "Antecedentes Mórbidos: " + morbido + "\n"
             + "Antecedentes Quirúrgicos: " + quirurgico + "\n"
@@ -57,11 +81,13 @@
             + "Tratamiento Antibiótico: " + antibiotico + "\n"
             + "Alergias: " + alergias + "\n"
             + "Hemoglobina Glicosilada: " + hglicosilada + "% (" + hg_fecha + ")" + "\n"
-            + "Glicemia en ayunas: " + glicemia + "mg/dL (" + gl_fecha + ")" + "\n"
+            + "Glicemia en ayunas: " + glicemia + " mg/dL (" + gl_fecha + ")" + "\n"
+            + "Cultivo de herida: " + cultivo + " (" + cl_fecha + ")" + "\n"
             + "Radiografía: " + radiografia + " (" + rx_fecha + ")" + "\n"
             + "Curaciones con inicio el " + curacion_i + " y frecuencia " + curacion_f + " usando apósito " + aposito + "\n"
             + "Dolor: EVA " + dolor + "\n"
-            + "Pulsos: Tibial: " + pulso_tibial + ", Pedio: " + pulso_pedio + "\n";
+            + "Pulsos: Tibial: " + pulso_tibial + ", Pedio: " + pulso_pedio + "\n"
+            + "La clasificación de San Elián es de " + clas_elian + " puntos.";
 
 //            alert(mensaje);
             var enlace = "joinallm://chat?message="+encodeURIComponent(mensaje);
@@ -78,6 +104,7 @@
             container: container,
             todayHighlight: true,
             autoclose: true,
+            language: 'es',
         })
     })
 </script>
@@ -93,17 +120,19 @@
 <!-- Formulario -->
 <div class="container">
 <h4>Formulario Pie Diabético</h4>
-<form id="Formulario">
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputFecha0">Fecha de Derivación</label>
-      <input type="text" class="form-control" id="inputFecha0" name="Fecha Derivación">
-    </div>
+<form class="needs-validation" id="Formulario" novalidate>
+<div class="form-row">
+  <div class="form-group col-md-6">
+        <label class="control-label " for="text"> Fecha de Derivación </label>
+        <input class="form-control" id="inputFecha0" name="date" type="text" required>
+        <div class="invalid-feedback">Ingresa la fecha de derivación</div>
+  </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputName">Nombre</label>
-      <input type="text" class="form-control" id="inputName" name="Nombre">
+      <input type="text" class="form-control" id="inputName" name="Nombre"required>
+      <div class="invalid-feedback">Ingresa el nombre</div>
     </div>
     <div class="form-group col-md-4">
       <label for="inputRUT">RUT</label>
@@ -115,7 +144,7 @@
     </div>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
       <label for="inputFuncionalidad">Funcionalidad</label>
       <select id="inputFuncionalidad" class="form-control" name="Funcionalidad">
         <option selected>Autovalente</option>
@@ -123,7 +152,16 @@
         <option>Apoyo total</option>
       </select>
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
+      <label for="inputOrtesis">Uso de órtesis</label>
+      <select id="inputOrtesis" class="form-control" name="Uso de Ortesis">
+        <option selected>Sin uso de órtesis</option>
+        <option>Bastón</option>
+        <option>Andador</option>
+        <option>Silla de ruedas</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
       <label for="inputCognitivo">Estado Cognitivo</label>
       <select id="inputCognitivo" class="form-control" name="Estado Cognitivo">
         <option selected>Orientado y lúcido</option>
@@ -158,8 +196,8 @@
       <input type="text" class="form-control" id="inputHG" name="Hemoglobina Glicosilada" placeholder="Valor">
     </div>
     <div class="form-group col-md-4">
-      <label for="inputFecha1">Fecha</label>
-      <input type="text" class="form-control" id="inputFecha1" name="Fecha">
+      <label class="control-label " for="text">Fecha</label>
+      <input class="form-control" id="inputFecha1" name="date" type="text"/>
     </div>
   </div>
   <div class="form-row">
@@ -168,8 +206,18 @@
       <input type="text" class="form-control" id="inputGlic" name="Glicemia" placeholder="Valor">
     </div>
     <div class="form-group col-md-4">
-      <label for="inputFecha2">Fecha</label>
-      <input type="text" class="form-control" id="inputFecha2" name="Fecha">
+      <label class="control-label " for="text">Fecha</label>
+      <input class="form-control" id="inputFecha2" name="date" type="text"/>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label for="inputCultivo">Cultivo de Herida</label>
+      <input type="text" class="form-control" id="inputCultivo" name="CUltivo" placeholder="Resultado">
+    </div>
+    <div class="form-group col-md-4">
+      <label class="control-label " for="text">Fecha</label>
+      <input class="form-control" id="inputFecha4" name="date" type="text"/>
     </div>
   </div>
   <div class="form-row">
@@ -178,15 +226,15 @@
       <input type="text" class="form-control" id="inputRx" name="Radiografía" placeholder="Descripción">
     </div>
     <div class="form-group col-md-4">
-      <label for="inputFecha3">Fecha</label>
-      <input type="text" class="form-control" id="inputFecha3" name="Fecha">
+      <label class="control-label " for="text">Fecha</label>
+      <input class="form-control" id="inputFecha3" name="date" type="text"/>
     </div>
   </div>
   <h5>Curaciones</h5>
   <div class="form-row">
     <div class="form-group col-md-4">
-      <label for="inputCuracionI">Inicio</label>
-      <input type="text" class="form-control" id="inputCuracionI">
+      <label class="control-label " for="text">Fecha de Inicio</label>
+      <input class="form-control" id="inputCuracionI" name="date" type="text"/>
     </div>
     <div class="form-group col-md-4">
       <label for="inputFrec">Frecuencia</label>
@@ -198,10 +246,7 @@
     </div>
     <div class="form-group col-md-4">
       <label for="inputAposito">Apósitos</label>
-      <select id="inputAposito" class="form-control">
-        <option selected>Antimicrobiano</option>
-        <option>Otro</option>
-      </select>
+      <input type="text" class="form-control" id="inputApósito" placeholder="Ej.: Antimicrobiano">
     </div>
   </div>
   <div class="form-row">
@@ -226,6 +271,12 @@
         <option>Débil (+)</option>
         <option>Ausente (-)</option>
       </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputElian">Escala de San Elián</label>
+      <input type="text" class="form-control" id="inputElian">
     </div>
   </div>
 <button type="submit" class="btn btn-danger" id="create-link-button">Enviar</button>
